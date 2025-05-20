@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --lz-primary: #FB923C;
+    --lz-secondary: #aa4efe;
+    --lz-bg-default: #fff;
+    --lz-pre-bg: #2a2d30;         /* near slate-900 */
+    --lz-pre-text: #e2e8f0;       /* slate-200 */
+    --lz-pre-border: #1e293b;     /* slate-800 */
+    --lz-pre-dot-red: #f87171;    /* rose-400 */
+    --lz-pre-dot-yellow: #facc15; /* amber-400 */
+    --lz-pre-dot-green: #34d399;  /* emerald-400 */
+
+}
+
+html[data-theme="dark"] {
+    --lz-primary: #FB923C;
+    --lz-primary-dark: #FB923C;
+    --lz-secondary: #aa4efe;
+    --lz-bg-default: #0f172a;
+}
+
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+*{
+    font-family: "Inter", sans-serif;
+    outline: none;
+}
+
+/* container for animated lightning lines */
+.hero-lightning-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.05) 1px,
+        transparent 1px,
+        transparent 20px
+      );
+    background-size: 200% 200%;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+    animation: drift 15s linear infinite;
+}
+  
+  /* very subtle “flash” every so often */
+@keyframes drift {
+    0%   { background-position:   0%   0%; }
+    50%  { background-position: 100% 100%; }
+    100% { background-position:   0%   0%; }
+}
+  
+  /* optional pulse for occasional lightning flash */
+.hero-lightning-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.1);
+    opacity: 0;
+    animation: flash 5s ease-in-out infinite;
+}
+  
+@keyframes flash {
+    0%, 90%, 100% { opacity: 0; }
+    91%, 95%     { opacity: 0.1; }
+}  
+  
+
+.cursor-glow {
+    pointer-events: none;
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255, 172, 103, 0.3) 0%, transparent 80%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    transition: transform 0.1s ease-out;
+}
+
+.code-wrapper{
+  box-sizing: border-box;
+  background: var(--lz-pre-border);
+  overflow-y: hidden;
+  border-radius: 6px;
+}
+
+.code-wrapper::-webkit-scrollbar{
+  width: 100%;
+  height: 6px;
+}
+
+.code-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  background: var(--lz-pre-bar, #212529);
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.win-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.win-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.copy-btn {
+  background-color: rgba(255,255,255,0.06);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.copy-btn:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+
+/* Inline code */
+code {
+  padding: 0.2em 0.4em;
+  font-size: 85%;
+  background-color: var(--lz-code-bg, #f4f4f5) !important;
+  color: var(--lz-code-text, #d42a5b) !important;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace !important;
+}
+
+/* Block code */
+pre {
+  display: block !important;            /* ensure block-level */
+  width: 100% !important;               /* fill parent container */
+  box-sizing: border-box !important;    /* include padding/border in width */
+  padding: 1.4rem;
+  white-space: pre !important;          /* no wrapping */
+  max-width: 100% !important;           /* never exceed parent */
+  overflow-x: auto !important;          /* horizontal scroll if needed */
+  overflow-y: hidden !important;
+  background-color: var(--lz-pre-bg, #1e1e2f) !important;
+  color: var(--lz-pre-text, #f8f8f2) !important;
+  font-size: 0.875rem;
+  font-family: consolas, ui-monospace, SFMono-Regular, Menlo, monospace !important;
+  line-height: 1.5 !important;
+  margin: 0!important;                             /* reset default margins */
+  max-height: fit-content;
+}
+
+/* Ensure the <code> inside <pre> inherits and stays unwrapped */
+pre code {
+  display: block !important;
+  background: transparent !important;
+  padding: 0 !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  white-space: pre !important;
+  text-shadow: none!important;
+}
+
+/* Optional: enforce monospace inside spans within code (e.g. Prism tokens) */
+code span {
+  font-family: consolas, ui-monospace, SFMono-Regular, Menlo, monospace !important;
+}
+
+/* Each grid card needs to maintain its own width */
+.d-grid > div {
+  min-width: 0; /* Critical fix for grid items */
+  width: 100%;
+}
+
+/* Container & panels already styled via Litezen utilities */
+
+/* Ensure the inner wrapper is positioned relative */
+#theme-support .slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* only panels get clipped now */
+.slider-panels {
+  inset: 0;
+  overflow: hidden;
+  border-radius: 0.375rem; /* match your rounded-lg */
+}
+
+/* wrapper now visible so handle never gets cut */
+#theme-support > .d-flex {
+  overflow: visible !important;
+}
+
+
+/* Panels full bleed inside slider-wrapper */
+#theme-support .slider-wrapper > .light-panel,
+#theme-support .slider-wrapper > .dark-panel {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  transition: clip-path 0.2s ease-out;
+}
+
+/* Dark panel clipped to left half by default */
+#theme-support .dark-panel {
+  clip-path: inset(0 0 0 50%);
+}
+
+/* make the handle a thick always-visible divider */
+#theme-support #theme-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;                   /* thicker divider */
+  background-color: var(--lz-primary);   /* your primary color */
+  cursor: ew-resize;
+  z-index: 5;
+  transition: background-color 0.2s;
+}
+
+/* hover state for better affordance */
+#theme-support #theme-handle:hover {
+  background-color: var(--lz-primary);
+}
+
+/* expand the hit area slightly so it's easier to grab */
+#theme-support .slider-wrapper {
+  padding-left: 4px;
+  padding-right: 4px;
+  box-sizing: content-box;
+}
+
+/* fixed-size 32×32 icons */
+.icon-32 {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* for dark-mode SVGs that need white fills */
+.invert-filter {
+  filter: invert(1);
+}
+
+[data-theme="dark"] .dark-invert-filter{
+  filter: invert(1);
+}
+
+/* Mobile menu slide-in/out */
+#mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: left 0.3s ease-in-out;
+}
+
+/* When open, slide into view */
+#mobile-menu.open {
+  left: 0;
+}
+
+/* Animate the hamburger ↔️ X rotation (optional) */
+button.menu-toggle .ham-icon {
+  transition: transform 0.2s ease;
+}
+button.menu-toggle.open .ham-icon {
+  transform: rotate(90deg);
+}
