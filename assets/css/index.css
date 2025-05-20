@@ -192,6 +192,7 @@ html[data-theme="dark"] {
   background: var(--lz-pre-border);
   overflow-y: hidden;
   border-radius: 6px;
+  min-width: 100%;
 }
 
 .code-wrapper::-webkit-scrollbar{
@@ -385,4 +386,49 @@ button.menu-toggle .ham-icon {
 }
 button.menu-toggle.open .ham-icon {
   transform: rotate(90deg);
+}
+
+/* Slide the sidebar in/out and reset main width/padding at <768px */
+@media (max-width: 767px) {
+  #docs-sidebar {
+    /* off-canvas by default */
+    transform: translateX(-100%);
+  }
+  #docs-sidebar.open {
+    /* when we add .open via JS */
+    transform: translateX(0);
+  }
+  #docs-main {
+    /* reset left padding */
+    padding-left: var(--lz-space-4)!important; /* same as p-4 */
+    padding-right: var(--lz-space-4)!important;
+  }
+}
+
+/* Always visible on desktop */
+@media (min-width: 768px) {
+  #docs-sidebar {
+    transform: translateX(0) !important;
+  }
+}
+
+/* Tablets & small desktops: bump sidebar width */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #docs-sidebar {
+    width: 30% !important;
+    /* or a fixed width:
+    width: 20rem !important;
+    */
+  }
+  /* make sure main content pushes over accordingly */
+  #docs-main {
+    padding-left: 34% !important;
+    /* or if fixed:
+    padding-left: 20rem !important;
+    */
+  }
+
+  #mobile-menu{
+    width: 40%;
+  }
 }
